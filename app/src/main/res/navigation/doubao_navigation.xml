@@ -7,17 +7,17 @@
 
   <fragment
       android:id="@+id/galleryFragment"
-      android:name="com.example.doubao.homescreen.gallery.GalleryFragment"
+      android:name="com.example.doubao.ui.gallery.GalleryFragment"
       android:label="fragment_gallery"
       tools:layout="@layout/fragment_gallery" />
   <fragment
       android:id="@+id/listFragment"
-      android:name="com.example.doubao.homescreen.list.ListFragment"
+      android:name="com.example.doubao.ui.list.ListFragment"
       android:label="fragment_list"
       tools:layout="@layout/fragment_list" />
   <fragment
       android:id="@+id/profileFragment"
-      android:name="com.example.doubao.homescreen.profile.ProfileFragment"
+      android:name="com.example.doubao.ui.profile.ProfileFragment"
       android:label="fragment_profile"
       tools:layout="@layout/fragment_profile" >
     <action

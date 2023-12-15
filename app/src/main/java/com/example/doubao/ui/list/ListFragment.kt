@@ -1,4 +1,4 @@
-package com.example.doubao.homescreen.list
+package com.example.doubao.ui.list
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
