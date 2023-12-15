@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/doubao_navigation"
+    app:startDestination="@id/profileFragment">
+
+  <fragment
+      android:id="@+id/galleryFragment"
+      android:name="com.example.doubao.homescreen.gallery.GalleryFragment"
+      android:label="fragment_gallery"
+      tools:layout="@layout/fragment_gallery" />
+  <fragment
+      android:id="@+id/listFragment"
+      android:name="com.example.doubao.homescreen.list.ListFragment"
+      android:label="fragment_list"
+      tools:layout="@layout/fragment_list" />
+  <fragment
+      android:id="@+id/profileFragment"
+      android:name="com.example.doubao.homescreen.profile.ProfileFragment"
+      android:label="fragment_profile"
+      tools:layout="@layout/fragment_profile" >
+    <action
+        android:id="@+id/action_profileFragment_to_listFragment"
+        app:destination="@id/listFragment" />
+    <action
+        android:id="@+id/action_profileFragment_to_galleryFragment"
+        app:destination="@id/galleryFragment" />
+  </fragment>
+</navigation>
