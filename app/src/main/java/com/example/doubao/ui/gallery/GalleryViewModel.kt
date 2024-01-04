@@ -12,7 +12,8 @@ import com.example.doubao.model.FakeModel
 class GalleryViewModel : ViewModel() {
   private val fakeModel: FakeModel = FakeModel()
   private var _id = 0
-  private var _doubaoMemories = fakeModel.loadDoubaoMemories()
+  private val _doubaoMemories
+    get() = fakeModel.loadDoubaoMemories()
 
   val currentMemory: DoubaoMemory
     get() = _doubaoMemories[_id]

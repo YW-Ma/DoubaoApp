@@ -29,5 +29,8 @@ class ProfileFragment : Fragment() {
     binding.galleryButton.setOnClickListener {
       findNavController().navigate(R.id.action_profileFragment_to_galleryFragment)
     }
+    binding.listButton.setOnClickListener {
+      findNavController().navigate(R.id.action_profileFragment_to_listFragment)
+    }
   }
 }
