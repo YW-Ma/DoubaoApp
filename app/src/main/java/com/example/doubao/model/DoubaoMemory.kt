@@ -4,5 +4,6 @@ package com.example.doubao.model
 data class DoubaoMemory(
   // The description of a memory.
   val description: String,
-  // TODO: add field for photos id or url.
+  // The ResId of doubao photos.
+  val photoResId: Int,
 )

@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.doubao.databinding.FragmentGalleryBinding
+import com.example.doubao.model.DoubaoMemory
 
 /**
  * The fragment showing a doubao photo with a description.
@@ -39,7 +40,7 @@ class GalleryFragment : Fragment() {
     binding.galleryFragment.rootView.setOnTouchListener { _, event ->
       horizontalSwipeHandler(event)
     }
-    updateDescription()
+    updateMemory()
   }
 
   private fun horizontalSwipeHandler(event: MotionEvent): Boolean {
@@ -52,11 +53,11 @@ class GalleryFragment : Fragment() {
       MotionEvent.ACTION_UP -> {
         if (event.x - startTouch.x > touchSlop) {
           // Swipe left
-          binding.description.text = viewModel.prevMemory().description
+          updateMemory(viewModel.prevMemory())
           return true
         } else if (startTouch.x - event.x > touchSlop) {
           // Swipe right
-          binding.description.text = viewModel.nextMemory().description
+          updateMemory(viewModel.nextMemory())
           return true
         }
       }
@@ -64,8 +65,13 @@ class GalleryFragment : Fragment() {
     return false
   }
 
-  private fun updateDescription() {
-    binding.description.text = viewModel.currentMemory.description
+  private fun updateMemory() {
+    updateMemory(viewModel.currentMemory)
+  }
+
+  private fun updateMemory(memory: DoubaoMemory) {
+    binding.memoryDescription.text = memory.description
+    binding.memoryPhoto.setImageResource(memory.photoResId)
   }
 
   private companion object {
