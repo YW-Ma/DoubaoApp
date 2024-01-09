@@ -10,11 +10,17 @@
       android:name="com.example.doubao.ui.gallery.GalleryFragment"
       android:label="fragment_gallery"
       tools:layout="@layout/fragment_gallery" />
+
   <fragment
       android:id="@+id/listFragment"
       android:name="com.example.doubao.ui.list.ListFragment"
       android:label="fragment_list"
-      tools:layout="@layout/fragment_list" />
+      tools:layout="@layout/fragment_list" >
+    <action
+        android:id="@+id/action_listFragment_to_galleryFragment"
+        app:destination="@id/galleryFragment" />
+  </fragment>
+
   <fragment
       android:id="@+id/profileFragment"
       android:name="com.example.doubao.ui.profile.ProfileFragment"

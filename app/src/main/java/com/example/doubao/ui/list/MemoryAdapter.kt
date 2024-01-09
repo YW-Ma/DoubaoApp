@@ -7,9 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.doubao.R
 import com.example.doubao.model.DoubaoMemory
+
+// TODO: safeargs传参和recycler view的click listener 参考 https://docs.google.com/document/d/12PRhp0sSCrGRh4FrD4nyftezMnzpdjvMFJiR8LijeHs/edit#bookmark=kix.wlmz8jtzqwdr
 
 class MemoryAdapter(
   private val context: Context,
@@ -38,5 +41,10 @@ class MemoryAdapter(
     val memoryItem = dataset[position]
     holder.textView.text = memoryItem.description
     holder.imageView.setImageResource(memoryItem.photoResId)
+    holder.itemView.setOnClickListener{
+      Log.d("dev test", "click the position $position")
+      it.findNavController().navigate(R.id.action_listFragment_to_galleryFragment)
+      // TODO: pass argument so as to navigate to specified memory using SafeArgs.
+    }
   }
 }
