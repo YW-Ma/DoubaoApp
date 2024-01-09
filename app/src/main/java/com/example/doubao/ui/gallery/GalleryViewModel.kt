@@ -35,4 +35,9 @@ class GalleryViewModel : ViewModel() {
     }
     return _doubaoMemories[_id]
   }
+
+  /** Get specified memory by id. */
+  fun setCurrentMemory(position: Int) {
+    _id = position
+  }
 }

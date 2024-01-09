@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.navArgs
 import com.example.doubao.databinding.FragmentGalleryBinding
 import com.example.doubao.model.DoubaoMemory
 
@@ -20,6 +21,7 @@ class GalleryFragment : Fragment() {
   private lateinit var binding: FragmentGalleryBinding
   private val startTouch = PointF()
   private val viewModel: GalleryViewModel by viewModels() // Note: Use Kotlin property delegation. The delegate class viewModels retains viewModel value through configuration changes, so no new viewModel object will be created.
+  private val args: GalleryFragmentArgs by navArgs()
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     touchSlop = (resources.displayMetrics.heightPixels * TOUCH_SLOP_RATIO).toInt()
@@ -40,6 +42,7 @@ class GalleryFragment : Fragment() {
     binding.galleryFragment.rootView.setOnTouchListener { _, event ->
       horizontalSwipeHandler(event)
     }
+    viewModel.setCurrentMemory(args.memoryId)
     updateMemory()
   }
 

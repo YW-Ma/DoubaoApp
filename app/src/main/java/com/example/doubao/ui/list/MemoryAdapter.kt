@@ -43,8 +43,8 @@ class MemoryAdapter(
     holder.imageView.setImageResource(memoryItem.photoResId)
     holder.itemView.setOnClickListener{
       Log.d("dev test", "click the position $position")
-      it.findNavController().navigate(R.id.action_listFragment_to_galleryFragment)
-      // TODO: pass argument so as to navigate to specified memory using SafeArgs.
+      val action = ListFragmentDirections.actionListFragmentToGalleryFragment(position)
+      it.findNavController().navigate(action)
     }
   }
 }

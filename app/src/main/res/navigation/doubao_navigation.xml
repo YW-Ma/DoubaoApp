@@ -9,7 +9,12 @@
       android:id="@+id/galleryFragment"
       android:name="com.example.doubao.ui.gallery.GalleryFragment"
       android:label="fragment_gallery"
-      tools:layout="@layout/fragment_gallery" />
+      tools:layout="@layout/fragment_gallery" >
+    <argument
+        android:name="memoryId"
+        app:argType="integer"
+        android:defaultValue="0" />
+  </fragment>
 
   <fragment
       android:id="@+id/listFragment"
@@ -18,7 +23,12 @@
       tools:layout="@layout/fragment_list" >
     <action
         android:id="@+id/action_listFragment_to_galleryFragment"
-        app:destination="@id/galleryFragment" />
+        app:destination="@id/galleryFragment">
+      <argument
+          android:name="memoryId"
+          app:argType="integer"
+          android:defaultValue="0" />
+    </action>
   </fragment>
 
   <fragment
